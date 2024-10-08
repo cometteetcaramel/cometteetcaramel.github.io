@@ -1,5 +1,4 @@
-Here you can say lots of fun things about your site.
+Welcome to cometteetcaramel blog !
 
-Maybe say a some things about yourself.
+A blog about cybersecurity and cars !
 
-Or maybe what you plan to blog about.
