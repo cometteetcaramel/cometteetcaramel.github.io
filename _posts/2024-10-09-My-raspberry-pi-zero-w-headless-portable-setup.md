@@ -69,13 +69,13 @@ sudo reboot
 
 To connect via Bluetooth, follow these steps. (Use `CTRL+X` to exit the Nano editor.)
 
-1. Install the required Bluetooth tools:
+Install the required Bluetooth tools:
 
 ```bash
 sudo apt install bluez-tools
 ```
 
-2. Create the following configuration files:
+Create the following configuration files:
 
 ```bash
 sudo nano /etc/systemd/network/pan0.netdev
@@ -83,7 +83,7 @@ sudo nano /etc/systemd/network/pan0.netdev
 
 Add the following content:
 
-```ini
+```bash
 [NetDev]
 Name=pan0
 Kind=bridge
@@ -95,7 +95,7 @@ sudo nano /etc/systemd/network/pan0.network
 
 Add the following content:
 
-```ini
+```bash
 [Match]
 Name=pan0
 [Network]
@@ -109,7 +109,7 @@ sudo nano /etc/systemd/system/bt-agent.service
 
 Add the following content:
 
-```ini
+```bash
 [Unit]
 Description=Bluetooth Auth Agent
 [Service]
@@ -125,7 +125,7 @@ sudo nano /etc/systemd/system/bt-network.service
 
 Add the following content:
 
-```ini
+```bash
 [Unit]
 Description=Bluetooth NEP PAN
 After=pan0.network
@@ -136,7 +136,7 @@ Type=simple
 WantedBy=multi-user.target
 ```
 
-3. Enable Bluetooth on boot:
+Enable Bluetooth on boot:
 
 ```bash
 sudo systemctl enable systemd-networkd
@@ -147,7 +147,7 @@ sudo systemctl start bt-agent
 sudo systemctl start bt-network
 ```
 
-4. To pair the Pi with your phone or computer, run:
+To pair the Pi with your phone or computer, run:
 
 ```bash
 sudo bt-adapter --set Discoverable 1
